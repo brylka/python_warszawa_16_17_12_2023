@@ -21,8 +21,8 @@ for row in data:
     else:
         citys[city] = {'total': height, 'number': 1}
 
-#print(citys)
+print(citys)
 
 for city, data in citys.items():
     avarage = data['total'] / data['number']
-    print(f"Średni wzrost w mieście {city} wynosi: {avarage}")
+    print(f"Średni wzrost w mieście {city} wynosi: {avarage:.3f}")
