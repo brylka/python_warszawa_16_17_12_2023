@@ -49,13 +49,13 @@ class CityAnalizer:
         list = ", ".join(self.cities.keys())
         print(list)
 
-    def plot(self):
+    def plot(self, what=''):
         avarages = self.avarages()
         cities = list(avarages.keys())
         values = list(avarages.values())
 
         plt.figure(figsize=(10, 6))
-        plt.bar(cities, values)
+        plt.bar(cities, values, color="red")
         plt.title('Średni wzrost w różnych miastach.')
         plt.xlabel('Miasto')
         plt.ylabel('Średni wzrost w miastach')
