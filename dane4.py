@@ -1,3 +1,6 @@
+from matplotlib import pyplot as plt
+
+
 class CityAnalizer:
     def __init__(self, filename = 'dane.csv'):
         self.cities = {}
@@ -39,28 +42,18 @@ class CityAnalizer:
         list = ", ".join(self.cities.keys())
         print(list)
 
-#city = CityAnalizer()
+    def plot(self):
+        plt.figure(figsize=(10, 6))
+        plt.title('Średni wzrost w różnych miastach.')
+        plt.show()
+
+
+
+
+city = CityAnalizer()
+city.plot()
 #city.load_data()
 #city.show_height()
 #city.show_height("Wrocław")
 #city.show_citys()
 
-def main():
-    cities_data = CityAnalizer()
-
-    while True:
-        cities_data.show_cities()
-        chose = input("Podaj nazwę miasta (lub 'exit' aby wyjść, 'load' aby wczytać ponownie dane): ").capitalize()
-
-        if chose.lower() == 'exit':
-            print("Dziękuję za współpracę!")
-            break
-        elif chose.lower() == 'load':
-            cities_data.load_data()
-            print("Wczytałem ponownie dane!")
-        else:
-            cities_data.show_height(chose)
-
-
-if __name__ == "__main__":
-    main()
