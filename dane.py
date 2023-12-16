@@ -11,8 +11,10 @@ data = [line.strip().split(',') for line in lines]
 #print(data)
 
 total_height = 0
-
+i = 0
 for row in data:
-    total_height += int(row[2])
+    if row[4] == 'Warszawa':
+        total_height += int(row[2])
+        i+=1
 
-print(total_height/len(data))
+print(total_height/i)
