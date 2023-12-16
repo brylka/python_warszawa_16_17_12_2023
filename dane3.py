@@ -19,12 +19,20 @@ class CityAnalizer:
             else:
                 self.citys[city] = {'total': height, 'number': 1}
 
-    def show_height(self, x, city):
-        for city, data in self.citys.items():
-            avarage = data['total'] / data['number']
-            print(f"Średni wzrost w mieście {city} wynosi: {avarage:.{x}f}")
+    def show_height(self, city='', x=2):
+        if city:
+            if city in self.citys:
+                data = self.citys[city]
+                avarage = data['total'] / data['number']
+                print(f"Średni wzrost w mieście {city:<8.8} wynosi: {avarage:.{x}f}")
+            else:
+                print(f"Nie mam takiego miasta jak {city} w bazie.")
+        else:
+            for city, data in self.citys.items():
+                avarage = data['total'] / data['number']
+                print(f"Średni wzrost w mieście {city:<8.8} wynosi: {avarage:.{x}f}")
 
 city = CityAnalizer()
 #city.load_data()
-city.show_height(7, "")
-city.show_height(3, "Warszawa")
+#city.show_height()
+city.show_height("Wrocław")
