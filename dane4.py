@@ -35,6 +35,13 @@ class CityAnalizer:
                 avarage = data['total'] / data['number']
                 print(f"Średni wzrost w mieście {city:<8.8} wynosi: {avarage:.{x}f}")
 
+    def avarages(self):
+        avarages = {}
+        for city, data in self.cities.items():
+            avarage = data['total'] / data['number']
+            avarages[city] = avarage
+        return avarages
+
     def show_cities(self):
         print("Dostępne miasta w bazie: ", end="")
         #for city in self.citys.keys():
@@ -43,8 +50,15 @@ class CityAnalizer:
         print(list)
 
     def plot(self):
+        avarages = self.avarages()
+        cities = list(avarages.keys())
+        values = list(avarages.values())
+
         plt.figure(figsize=(10, 6))
+        plt.bar(cities, values)
         plt.title('Średni wzrost w różnych miastach.')
+        plt.xlabel('Miasto')
+        plt.ylabel('Średni wzrost w miastach')
         plt.show()
 
 
@@ -52,6 +66,7 @@ class CityAnalizer:
 
 city = CityAnalizer()
 city.plot()
+#print(city.avarages())
 #city.load_data()
 #city.show_height()
 #city.show_height("Wrocław")
