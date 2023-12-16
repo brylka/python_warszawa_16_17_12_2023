@@ -32,7 +32,32 @@ class CityAnalizer:
                 avarage = data['total'] / data['number']
                 print(f"Średni wzrost w mieście {city:<8.8} wynosi: {avarage:.{x}f}")
 
-city = CityAnalizer()
+    def show_citys(self):
+        print("Dostępne miasta w bazie: ", end="")
+        #for city in self.citys.keys():
+        #    print(city, end=", ")
+        list = ", ".join(self.citys.keys())
+        print(list)
+
+#city = CityAnalizer()
 #city.load_data()
 #city.show_height()
-city.show_height("Wrocław")
+#city.show_height("Wrocław")
+#city.show_citys()
+
+def main():
+    city = CityAnalizer()
+
+    while True:
+        city.show_citys()
+        chose = input("Podaj nazwę miasta (lub 'exit' aby wyjść): ").capitalize()
+
+        if chose.lower() == 'exit':
+            print("Dziękuję za współpracę!")
+            break
+
+        city.show_height(chose)
+
+
+if __name__ == "__main__":
+    main()
