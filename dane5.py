@@ -7,7 +7,7 @@ class CityAnalizer:
         self.dataframe = pd.read_csv(filename, sep=',', encoding='utf-8')
         #print(self.dataframe)
         self.dataframe.columns = ['id', 'age', 'height', 'weight', 'city']
-        self.city_avarages = self.dataframe.groupby('city')[['height', 'age', 'weight']].mean()
+        self.city_avarages = self.dataframe.groupby('city')['height'].mean()
         #print(self.city_avarages)
 
     def plot(self):
@@ -16,6 +16,8 @@ class CityAnalizer:
         plt.xlabel('Miasto')
         plt.ylabel('Średni wzrost w miastach')
         plt.xticks(rotation=0)
+        for i, value in enumerate(self.city_avarages):
+            plt.annotate(f"{value:.2f}", (i, value), textcoords="offset points", xytext=(0,5), ha='center')
         plt.show()
 
 
