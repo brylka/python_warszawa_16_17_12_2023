@@ -18,5 +18,6 @@ class CityAnalizer:
         plt.xticks(rotation=0)
         plt.show()
 
+
 city = CityAnalizer()
 city.plot()
