@@ -1,6 +1,6 @@
 import pandas as pd
 from matplotlib import pyplot as plt
-
+import seaborn as sns
 
 class CityAnalizer:
     def __init__(self, filename='dane.csv'):
@@ -44,5 +44,11 @@ class CityAnalizer:
         plt.title('Średni wzrost i waga w różnych miastach')
         plt.show()
 
+    def plot_corr(self):
+        corr_matrix = self.dataframe[['height','age', 'weight']].corr()
+        sns.heatmap(corr_matrix, annot=True)
+        plt.show()
+        print(corr_matrix)
+
 city = CityAnalizer()
-city.plot2()
+city.plot_corr()
