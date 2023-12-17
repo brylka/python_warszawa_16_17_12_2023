@@ -29,6 +29,20 @@ class CityAnalizer:
         #    plt.annotate(f"{value:.2f}", (i, value), textcoords="offset points", xytext=(0,5), ha='center')
         plt.show()
 
+    def plot2(self):
+        fig, ax1 = plt.subplots(figsize=(10,6))
+
+        self.city_avarages['height'].plot(kind='bar', ax=ax1, color='blue', position=0, width=0.2)
+        ax1.set_ylabel('Średni wzrost (cm)', color='blue')
+        ax1.tick_params(axis='y', labelcolor='blue')
+
+        ax2 = ax1.twinx()
+        self.city_avarages['weight'].plot(kind='bar', ax=ax2, color='red', position=1, width=0.2)
+        ax2.set_ylabel('Średnia waga (kg)', color='red')
+        ax2.tick_params(axis='y', labelcolor='red')
+
+        plt.title('Średni wzrost i waga w różnych miastach')
+        plt.show()
 
 city = CityAnalizer()
-city.plot()
+city.plot2()
