@@ -9,6 +9,8 @@ class Person:
         #print("Nazywam się", self.name, "i mam", self.age, sep="!", end="\n")
         print(f"Nazywam się {self.name} i mam {self.age} lat oraz numer seryjny {self.serial_number}.")
 
+    def __str__(self):
+        return f"Obiekt z klasy Person o nazwie: {self.name}, wieku: {self.age}, numerze seryjnym: {self.serial_number}"
 
 #Person().hello()
 
@@ -24,7 +26,10 @@ for i in lista:
 
 #bartosz[1].hello()
 
-for person in bartosz:
-    person.hello()
+#for person in bartosz:
+    #person.hello()
 
-bartosz[3].hello()
+#bartosz[3].hello()
+
+print(bartosz)
+print(bartosz[0])
