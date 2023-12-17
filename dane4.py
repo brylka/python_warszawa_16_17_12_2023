@@ -42,12 +42,7 @@ class CityAnalizer:
             avarages[city] = avarage
         return avarages
 
-    def show_cities(self):
-        print("Dostępne miasta w bazie: ", end="")
-        #for city in self.citys.keys():
-        #    print(city, end=", ")
-        list = ", ".join(self.cities.keys())
-        print(list)
+
 
     def plot(self, what=''):
         avarages = self.avarages()
